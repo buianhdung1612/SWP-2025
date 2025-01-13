@@ -7,9 +7,8 @@ require('dotenv').config()
 const database = require("./config/database");
 database.connect();
 
-app.get('/', (req, res) => {
-    res.send('Hello Worldđs!')
-})
+const routeAdmin = require("./routes/admin/index.route");
+routeAdmin(app);
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
