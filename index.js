@@ -9,6 +9,13 @@ app.use(cors())
 const database = require("./config/database");
 database.connect();
 
+// Template engines: PUG
+app.set('views', `${__dirname}/views`)
+app.set('view engine', 'pug')
+
+// File tĩnh
+app.use(express.static(`${__dirname}/public`))
+
 const routeAdmin = require("./routes/admin/index.route");
 routeAdmin(app);
 
