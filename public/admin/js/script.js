@@ -49,3 +49,30 @@ if (boxFilter) {
     }
 }
 // Hết Bộ lọc
+
+// Phân trang
+const listButtonPagination = document.querySelectorAll("[button-pagination]");
+if(listButtonPagination.length > 0){
+    listButtonPagination.forEach((button) => {
+        let url = new URL(location.href);
+
+        button.addEventListener("click", () => {
+            const page = button.getAttribute("button-pagination");
+
+            if(page){
+                url.searchParams.set("page", page);
+            }
+            else{
+                url.searchParams.delete("page");
+            }
+
+            location.href = url.href;
+        })
+
+        const pageCurrent = url.searchParams.get("page");
+        if(pageCurrent){
+
+        }
+    })
+}
+// Hết Phân trang
